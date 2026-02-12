@@ -1,144 +1,144 @@
 Enterprise Network Security Lab
 
-Project Objective
 
 
+Project Overview
 
-This project simulates a secure enterprise network environment using VLAN segmentation, inter-VLAN routing, a hardened Ubuntu web server, and intrusion detection monitoring.
 
 
+This project is a complete simulation of a small enterprise network environment designed to demonstrate practical networking, system administration, and security monitoring skills. The lab integrates Cisco Packet Tracer for network design and Oracle VM VirtualBox running Ubuntu Server for real-world system deployment and hardening. The primary goal of this project was to simulate how an organization builds, secures, and monitors its internal infrastructure while maintaining segmentation and visibility across the network.
 
-The objective is to demonstrate practical skills in networking, Linux administration, and security monitoring.
 
 
+The lab reflects the practical responsibilities of a SOC Analyst or Network Security Analyst, including network configuration, server hardening, intrusion detection deployment, firewall configuration, and log analysis.
 
-Network Architecture
 
-Devices Used
 
+Enterprise Network Design
 
 
-Cisco 2811 Router
 
+The network architecture was first designed in Cisco Packet Tracer to simulate a small enterprise environment. The topology consists of a router acting as the default gateway, a Layer 2 switch for internal connectivity, multiple end-user PCs representing different departments, and a centralized server.
 
 
-Cisco 2960 Switch
 
+An IP addressing scheme based on the 192.168.1.0/24 network was implemented. The router was configured with the gateway address 192.168.1.1, and end devices were assigned static IP addresses within the subnet. Connectivity between all devices was validated using ICMP ping tests to ensure proper routing and switching functionality.
 
 
-3 End-User PCs
 
+This phase demonstrates understanding of IP addressing, routing configuration, interface management, and end-to-end connectivity validation.
 
 
-1 Server
 
+VLAN Segmentation and Network Isolation
 
 
-VLAN Segmentation
 
-VLAN	Department	Subnet
+To simulate a realistic enterprise environment, VLAN segmentation was implemented on the switch remembering that organizations separate departments to improve security and reduce broadcast domains.
 
-10	HR	192.168.10.0/24
 
-20	IT	192.168.20.0/24
 
-30	Servers	192.168.30.0/24
+Two VLANs were created:
 
 
 
-Implemented Router-on-a-Stick configuration using 802.1Q trunking.
+VLAN 10 for the HR department
 
 
 
-Enterprise Network Configuration
+VLAN 20 for the IT department
 
 
 
-Configured VLANs on Layer 2 switch
+Switch ports were manually assigned to their respective VLANs using access mode configuration. Inter-VLAN routing was enabled on the router to allow controlled communication between departments when necessary.
 
 
 
-Assigned switch ports to VLANs
+This configuration demonstrates knowledge of network segmentation principles, VLAN configuration, access port management, and routing between logical networks. It also reflects real-world enterprise practices used to limit lateral movement in case of compromise.
 
 
 
-Configured trunk link between switch and router
+Ubuntu Server Deployment and Configuration
 
 
 
-Created router subinterfaces for inter-VLAN routing
+An Ubuntu Server instance was deployed using Oracle VM VirtualBox to simulate a production server inside the enterprise network. The server was configured with a static IP address aligned with the Packet Tracer network design to maintain architectural consistency.
 
 
 
-Verified connectivity using ping tests
+SSH services were enabled to allow secure remote management. Root login over SSH was disabled to reduce attack surface. The system firewall (UFW) was configured to allow only required services while blocking unnecessary ports.
 
 
 
-Ubuntu Server Deployment
+System updates were applied to ensure the server was running the latest security patches. Service status checks and log verification were performed using systemctl and journalctl commands to confirm stable operation.
 
 
 
-Installed Ubuntu in Oracle VirtualBox
+This phase demonstrates Linux administration, service management, network configuration, and system hardening practices.
 
 
 
-Configured static IP addressing
+Apache Web Server Deployment
 
 
 
-Enabled SSH remote access
+To simulate an internal enterprise application server, Apache was installed and configured on the Ubuntu machine. A custom HTML page was created and deployed within the Apache document root directory.
 
 
 
-Installed Apache2 web server
+The web server was tested locally to verify availability and functionality. This simulates hosting an internal company application or web portal.
 
 
 
-Deployed custom HTML webpage
+Deploying Apache in this lab demonstrates knowledge of service installation, web hosting basics, configuration management, and validation of service accessibility.
 
 
 
-Security Hardening
+Intrusion Detection System (Snort) Implementation
 
 
 
-Enabled UFW firewall
+To introduce a security monitoring component, Snort IDS was installed and configured on the Ubuntu server. Snort was set to monitor network traffic and generate alerts based on detected activity.
 
 
 
-Allowed only required services (SSH, HTTP)
+Traffic was generated within the network to validate that alerts were being triggered and logged correctly. Log files were reviewed to analyze detection output.
 
 
 
-Verified active services
+This component simulates the monitoring responsibilities of a SOC environment, where analysts review alerts, validate suspicious activity, and monitor network behavior.
 
 
 
-Monitored system status
+Security Hardening and Monitoring
 
 
 
-Intrusion Detection
+Security hardening measures implemented in this lab include:
 
 
 
-Installed Snort IDS
+Disabling root SSH login
 
 
 
-Configured HOME\_NET
+Configuring firewall rules using UFW
 
 
 
-Validated Snort configuration
+Segmenting network traffic using VLANs
 
 
 
-Monitored live traffic
+Monitoring network activity using Snort
 
 
 
-Generated alerts for test activity
+Verifying service integrity through system logs
+
+
+
+These steps reflect layered security principles and demonstrate understanding of defense-in-depth strategies commonly applied in enterprise environments.
 
 
 
@@ -146,29 +146,49 @@ Skills Demonstrated
 
 
 
-Enterprise VLAN configuration
+Through this project, the following technical competencies were demonstrated:
 
 
 
-Inter-VLAN routing
+Enterprise network design and IP addressing
 
 
 
-Linux server administration
+VLAN configuration and inter-VLAN routing
 
 
 
-Web server deployment
+Linux server deployment and hardening
 
 
 
-Firewall configuration
+SSH configuration and firewall management
 
 
 
-Intrusion detection monitoring
+Intrusion detection system setup and monitoring
 
 
 
-Network troubleshooting
+Log analysis and service validation
+
+
+
+Technical documentation using GitHub
+
+
+
+Learning Outcome
+
+
+
+This lab bridges networking and security concepts into a single integrated environment. It reflects how infrastructure and security controls work together in real-world enterprise systems.
+
+
+
+By completing this project, practical experience was gained in designing segmented networks, deploying hardened Linux servers, configuring monitoring tools, and documenting technical implementations clearly.
+
+
+
+This project aligns closely with the responsibilities of SOC Analyst and Network Security roles and demonstrates hands-on understanding rather than theoretical knowledge.
 
